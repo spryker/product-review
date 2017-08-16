@@ -26,5 +26,11 @@
         <property name="requestParams" type="array" />
     </transfer>
 
+    <transfer name="ProductAbstractReview">
+        <property name="idProductAbstract" type="int" />
+        <property name="averageRating" type="float" />
+        <property name="reviewCount" type="int" />
+    </transfer>
+
 </transfers>
 

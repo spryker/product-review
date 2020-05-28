@@ -43,6 +43,7 @@
 
     <transfer name="ProductReviewSearchRequest">
         <property name="idProductAbstract" type="int" />
+        <property name="locale" type="string"/>
         <property name="requestParams" type="array" />
     </transfer>
 

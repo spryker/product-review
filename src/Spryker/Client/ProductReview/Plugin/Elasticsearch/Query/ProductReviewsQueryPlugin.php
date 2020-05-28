@@ -115,6 +115,13 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
             ->addFilter($productReviewTypeFilter)
             ->addFilter($productReviewsFilter);
 
+        $locale = $this->productReviewSearchRequestTransfer->getLocale();
+        if ($locale !== null) {
+            $localeFilter = $this->createLocaleFilter($locale);
+
+            $boolQuery->addFilter($localeFilter);
+        }
+
         $query = $this->createQuery($boolQuery);
 
         return $query;
@@ -157,6 +164,16 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
         $productReviewTypeFilter->setType(ProductReviewConfig::ELASTICSEARCH_INDEX_TYPE_NAME);
 
         return $productReviewTypeFilter;
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return \Elastica\Query\Match
+     */
+    protected function createLocaleFilter(string $locale): Match
+    {
+        return (new Match())->setField(ProductReviewIndexMap::LOCALE, $locale);
     }
 
     /**

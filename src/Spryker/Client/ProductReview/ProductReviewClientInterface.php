@@ -31,6 +31,7 @@ interface ProductReviewClientInterface
     /**
      * Specification:
      * - Retrieves provided product abstract related product reviews from Search.
+     * - Filters product reviews by locale if ProductReviewSearchRequestTransfer.locale property is set.
      *
      * @api
      *

@@ -212,7 +212,7 @@ class ProductReviewFactory extends AbstractFactory
         $bulkProductReviewsQueryPlugin = new BulkProductReviewsQueryPlugin($bulkProductReviewSearchRequestTransfer);
         $queryExpanderPlugins = $this->getProductReviewsQueryExpanderPlugins();
 
-        if(count($this->getProductReviewsBulkQueryExpanderPlugins()) ) {
+        if (count($this->getProductReviewsBulkQueryExpanderPlugins())) {
             $queryExpanderPlugins = $this->getProductReviewsBulkQueryExpanderPlugins();
         }
 

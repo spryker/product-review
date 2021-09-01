@@ -109,14 +109,15 @@ class ProductReviewClient extends AbstractClient implements ProductReviewClientI
      *
      * @return \Generated\Shared\Transfer\ProductViewTransfer[]
      */
-    public function expandProductViewBatchWithProductReviewData(
+    public function expandProductViewBulkWithProductReviewData(
         array $productViewTransfers,
         BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
     ): array {
         return $this->getFactory()
-            ->createBulkProductViewBatchExpander($bulkProductReviewSearchRequestTransfer)
+            ->createProductViewBulkExpander($bulkProductReviewSearchRequestTransfer)
             ->expandProductViewsWithProductReviewData($productViewTransfers);
     }
+
     /**
      * {@inheritDoc}
      *

@@ -27,10 +27,10 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
     const CLIENT_SEARCH = 'CLIENT_SEARCH';
 
     const PRODUCT_REVIEWS_QUERY_EXPANDER_PLUGINS = 'PRODUCT_REVIEWS_QUERY_EXPANDER_PLUGINS';
-    const PLUGINS_BATCH_PRODUCT_REVIEWS_QUERY_EXPANDER = 'PLUGINS_BATCH_PRODUCT_REVIEWS_QUERY_EXPANDER';
+    const PLUGINS_PRODUCT_REVIEWS_BULK_QUERY_EXPANDER = 'PLUGINS_PRODUCT_REVIEWS_BULK_QUERY_EXPANDER';
     const PRODUCT_REVIEWS_SEARCH_RESULT_FORMATTER_PLUGINS = 'PRODUCT_REVIEWS_SEARCH_RESULT_FORMATTER_PLUGINS';
     const PAGINATION_CONFIG_BUILDER_PLUGIN = 'PAGINATION_CONFIG_BUILDER_PLUGIN';
-    const PLUGINS_BATCH_PRODUCT_REVIEWS_SEARCH_RESULT_FORMATTER = 'PLUGINS_BATCH_PRODUCT_REVIEWS_SEARCH_RESULT_FORMATTER';
+    const PLUGINS_PRODUCT_REVIEWS_BULK_SEARCH_RESULT_FORMATTER = 'PLUGINS_PRODUCT_REVIEWS_BULK_SEARCH_RESULT_FORMATTER';
 
     /**
      * @param \Spryker\Client\Kernel\Container $container
@@ -45,8 +45,8 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
         $container = $this->addProductReviewsQueryExpanderPlugins($container);
         $container = $this->addProductReviewsSearchResultFormatterPlugins($container);
         $container = $this->addPaginationConfigBuilderPlugin($container);
-        $container = $this->addBatchProductReviewsQueryExpanderPlugins($container);
-        $container = $this->addProductReviewsSearchBatchResultFormatterPlugins($container);
+        $container = $this->addProductReviewsBulkQueryExpanderPlugins($container);
+        $container = $this->addProductReviewsBulkSearchResultFormatterPlugins($container);
 
         return $container;
     }
@@ -126,19 +126,19 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addBatchProductReviewsQueryExpanderPlugins(Container $container): Container
+    protected function addProductReviewsBulkQueryExpanderPlugins(Container $container): Container
     {
-        $container[static::PLUGINS_BATCH_PRODUCT_REVIEWS_QUERY_EXPANDER] = function () {
-            return $this->getBatchProductReviewsQueryExpanderPlugins();
-        };
+        $container->set(static::PLUGINS_PRODUCT_REVIEWS_BULK_QUERY_EXPANDER, function () {
+            return $this->getProductReviewsBulkQueryExpanderPlugins();
+        });
 
         return $container;
     }
 
     /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\QueryExpanderPluginInterface[]
+     * @return \Spryker\Client\SearchExtension\Dependency\Plugin\QueryExpanderPluginInterface[]
      */
-    protected function getBatchProductReviewsQueryExpanderPlugins(): array
+    protected function getProductReviewsBulkQueryExpanderPlugins(): array
     {
         return [];
     }
@@ -186,19 +186,19 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
      *
      * @return \Spryker\Client\Kernel\Container
      */
-    protected function addProductReviewsSearchBatchResultFormatterPlugins(Container $container): Container
+    protected function addProductReviewsBulkSearchResultFormatterPlugins(Container $container): Container
     {
-        $container[static::PLUGINS_BATCH_PRODUCT_REVIEWS_SEARCH_RESULT_FORMATTER] = function () {
-            return $this->getProductReviewsSearchBatchResultFormatterPlugins();
-        };
+        $container->set(static::PLUGINS_PRODUCT_REVIEWS_BULK_SEARCH_RESULT_FORMATTER, function () {
+            return $this->getProductReviewsBulkSearchResultFormatterPlugins();
+        });
 
         return $container;
     }
 
     /**
-     * @return \Spryker\Client\Search\Dependency\Plugin\ResultFormatterPluginInterface[]
+     * @return \Spryker\Client\SearchExtension\Dependency\Plugin\ResultFormatterPluginInterface[]
      */
-    public function getProductReviewsSearchBatchResultFormatterPlugins(): array
+    public function getProductReviewsBulkSearchResultFormatterPlugins(): array
     {
         return [];
     }

@@ -18,9 +18,9 @@ class ProductViewExpander implements ProductViewExpanderInterface
     protected const KEY_RATING_AGGREGATION = 'ratingAggregation';
 
     /**
-     * @see \Spryker\Client\ProductReview\Plugin\Elasticsearch\ResultFormatter\RatingAggregationBatchResultFormatterPlugin::NAME
+     * @see \Spryker\Client\ProductReview\Plugin\Elasticsearch\ResultFormatter\ProductRatingAggregationBulkResultFormatterPlugin::NAME
      */
-    protected const KEY_PRODUCT_BATCH_AGGREGATION = 'productAggregation';
+    protected const KEY_PRODUCT_BULK_AGGREGATION = 'productAggregation';
 
     /**
      * @var \Spryker\Client\ProductReview\Calculator\ProductReviewSummaryCalculatorInterface
@@ -89,20 +89,20 @@ class ProductViewExpander implements ProductViewExpanderInterface
     ): array {
         $productsReviews = $this->productReviewSearchReader->searchProductReviews();
 
-        if (!isset($productsReviews[static::KEY_PRODUCT_BATCH_AGGREGATION])) {
+        if (!isset($productsReviews[static::KEY_PRODUCT_BULK_AGGREGATION])) {
             return $productViewTransfers;
         }
 
-        foreach ($productsReviews[static::KEY_PRODUCT_BATCH_AGGREGATION] as $productId => $productReviews) {
+        foreach ($productsReviews[static::KEY_PRODUCT_BULK_AGGREGATION] as $productId => $productReviews) {
             if (empty($productReviews[static::KEY_RATING_AGGREGATION])) {
                 continue;
             }
 
-            $productReviewSummaryTransfer = $this->productReviewSummaryCalculator->calculate(
-                $this->createRatingAggregationTransfer($productReviews)
-            );
-
             if (isset($productViewTransfers[$productId])) {
+                $productReviewSummaryTransfer = $this->productReviewSummaryCalculator->calculate(
+                    $this->createRatingAggregationTransfer($productReviews)
+                );
+
                 $productViewTransfers[$productId]->setRating($productReviewSummaryTransfer);
             }
         }

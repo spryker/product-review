@@ -42,7 +42,7 @@ class ProductReviewClientTest extends Unit
             ->expandProductViewBatchWithProductReviewData($productViews, $this->tester->createBulkProductReviewSearchRequestTransfer());
 
         // Assert
-        foreach ($this->tester->expectedResultData() as $productId => $testData) {
+        foreach ($this->getExpectedAverageRating() as $productId => $testData) {
             $this->assertEquals($prductViewsExpended[$productId]->getIdProductAbstract(), $productId);
             $this->assertEquals($prductViewsExpended[$productId]->getRating()->getAverageRating(), $testData['averageRating']);
         }
@@ -68,5 +68,23 @@ class ProductReviewClientTest extends Unit
     protected function cerateQueryMock(): QueryInterface
     {
         return $this->createMock(QueryInterface::class);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getExpectedAverageRating(): array
+    {
+        return [
+            1 => [
+                'averageRating' => 4.3,
+            ],
+            2 => [
+                'averageRating' => 1.9,
+            ],
+            3 => [
+                'averageRating' => 4.4,
+            ],
+        ];
     }
 }

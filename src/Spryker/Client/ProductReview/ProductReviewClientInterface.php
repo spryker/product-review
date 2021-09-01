@@ -81,7 +81,7 @@ interface ProductReviewClientInterface
 
     /**
      * Specification:
-     *  - Batch expands product view data with product review summary data (average rating).
+     *  - Expands product view data with product review summary data (average rating).
      *
      * @api
      *
@@ -90,7 +90,7 @@ interface ProductReviewClientInterface
      *
      * @return \Generated\Shared\Transfer\ProductViewTransfer[]
      */
-    public function expandProductViewBatchWithProductReviewData(
+    public function expandProductViewBulkWithProductReviewData(
         array $productViewTransfers,
         BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
     ): array;

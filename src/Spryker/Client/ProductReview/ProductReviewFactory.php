@@ -176,35 +176,6 @@ class ProductReviewFactory extends AbstractFactory
     /**
      * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
      *
-     * @return \Spryker\Client\ProductReview\ProductViewExpander\ProductViewExpanderInterface
-     */
-    public function createBulkProductViewBatchExpander(
-        BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-    ): ProductViewExpanderInterface {
-        return new ProductViewExpander(
-            $this->createProductReviewSummaryCalculator(),
-            $this->createProductReviewSearchBatchReader($bulkProductReviewSearchRequestTransfer)
-        );
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-     *
-     * @return \Spryker\Client\ProductReview\Search\ProductReviewSearchReaderInterface
-     */
-    public function createProductReviewSearchBatchReader(
-        BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-    ): ProductReviewSearchReaderInterface {
-        return new ProductReviewSearchReader(
-            $this->createBulkProductReviewsQueryPlugin($bulkProductReviewSearchRequestTransfer),
-            $this->getSearchClient(),
-            $this->getProductReviewsBatchSearchResultFormatterPlugins()
-        );
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-     *
      * @return \Spryker\Client\Search\Dependency\Plugin\QueryInterface
      */
     public function createBulkProductReviewsQueryPlugin(BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer)

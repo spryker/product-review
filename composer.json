@@ -19,7 +19,6 @@
   "require-dev": {
     "spryker/catalog": "*",
     "spryker/code-sniffer": "*",
-    "spryker/content": "*",
     "spryker/elastica": "*",
     "spryker/propel": "^3.0.0",
     "spryker/search-elasticsearch": "*",

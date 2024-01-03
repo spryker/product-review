@@ -81,7 +81,8 @@ interface ProductReviewClientInterface
 
     /**
      * Specification:
-     *  - Expands product view data with product review summary data (average rating).
+     * - Expands product view data with product review summary data (average rating).
+     * - Expects `ProductViewTransfer.idProductAbstract` to be set.
      *
      * @api
      *

@@ -34,69 +34,30 @@ class ProductReviewClientTester extends Actor
     use _generated\ProductReviewClientTesterActions;
 
     /**
-     * @return int[][][][]
-     */
-    public function createClinetSearchMockResponse(): array
-    {
-        return [
-            'productAggregation' => [
-                1 => [
-                    'ratingAggregation' => [
-                        5 => 3,
-                        2 => 1,
-                    ],
-                ],
-                2 => [
-                    'ratingAggregation' => [
-                        5 => 3,
-                        1 => 10,
-                    ],
-                ],
-                3 => [
-                    'ratingAggregation' => [
-                        5 => 130,
-                        4 => 33,
-                        3 => 21,
-                        2 => 10,
-                        1 => 5,
-                    ],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * @param int $id
+     * @param list<int> $productAbstractIds
      *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
+     * @return list<\Generated\Shared\Transfer\ProductViewTransfer>
      */
-    public function buildProductViewTranseferById(int $id): ProductViewTransfer
+    public function createProductViewTransfers(array $productAbstractIds): array
     {
-        $prodcutViewTransfer = new ProductViewTransfer();
-        $prodcutViewTransfer->setIdProductAbstract($id);
+        $productViewTransfers = [];
+        foreach ($productAbstractIds as $idProductAbstract) {
+            $productViewTransfer = (new ProductViewTransfer())->setIdProductAbstract($idProductAbstract);
+            $productViewTransfers[] = $productViewTransfer;
+        }
 
-        return $prodcutViewTransfer;
+        return $productViewTransfers;
     }
 
     /**
-     * @return \Generated\Shared\Transfer\ProductViewTransfer[]
-     */
-    public function createProductViews(): array
-    {
-        return [
-            1 => $this->buildProductViewTranseferById(1),
-            2 => $this->buildProductViewTranseferById(2),
-            3 => $this->buildProductViewTranseferById(3),
-        ];
-    }
-
-    /**
+     * @param list<int> $productAbstractIds
+     *
      * @return \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer
      */
-    public function createBulkProductReviewSearchRequestTransfer(): BulkProductReviewSearchRequestTransfer
+    public function createBulkProductReviewSearchRequestTransfer(array $productAbstractIds): BulkProductReviewSearchRequestTransfer
     {
         $bulkProductReviewSearchRequestTransfer = new BulkProductReviewSearchRequestTransfer();
-        $bulkProductReviewSearchRequestTransfer->setProductAbstractIds(array_keys($this->createProductViews()));
+        $bulkProductReviewSearchRequestTransfer->setProductAbstractIds($productAbstractIds);
         $bulkProductReviewSearchRequestTransfer->setFilter(new FilterTransfer());
 
         return $bulkProductReviewSearchRequestTransfer;

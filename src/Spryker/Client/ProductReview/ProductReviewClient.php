@@ -7,6 +7,7 @@
 
 namespace Spryker\Client\ProductReview;
 
+use Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer;
 use Generated\Shared\Transfer\ProductReviewRequestTransfer;
 use Generated\Shared\Transfer\ProductReviewSearchRequestTransfer;
 use Generated\Shared\Transfer\ProductReviewSummaryTransfer;

@@ -81,9 +81,9 @@ class ProductViewExpander implements ProductViewExpanderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer[] $productViewTransfers
+     * @param array<int, \Generated\Shared\Transfer\ProductViewTransfer> $productViewTransfers
      *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer[]
+     * @return array<int, \Generated\Shared\Transfer\ProductViewTransfer>
      */
     public function expandProductViewsWithProductReviewData(
         array $productViewTransfers
@@ -121,10 +121,11 @@ class ProductViewExpander implements ProductViewExpanderInterface
      * @param array<int, \Generated\Shared\Transfer\ProductViewTransfer> $productViewTransfers
      * @param int $idProductAbstract
      *
-     * @return list<\Generated\Shared\Transfer\ProductViewTransfer>
+     * @return array<int, \Generated\Shared\Transfer\ProductViewTransfer>
      */
     protected function filterProductViewTransfersByIdProductAbstract(array $productViewTransfers, int $idProductAbstract): array
     {
+        /** @var array<int, \Generated\Shared\Transfer\ProductViewTransfer> $filteredProductViewTransfers */
         $filteredProductViewTransfers = array_filter($productViewTransfers, function (ProductViewTransfer $productViewTransfer) use ($idProductAbstract) {
             return $productViewTransfer->getIdProductAbstract() === $idProductAbstract;
         });
@@ -137,10 +138,10 @@ class ProductViewExpander implements ProductViewExpanderInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\ProductViewTransfer> $productViewTransfers
+     * @param array<int, \Generated\Shared\Transfer\ProductViewTransfer> $productViewTransfers
      * @param \Generated\Shared\Transfer\ProductReviewSummaryTransfer $productReviewSummaryTransfer
      *
-     * @return list<\Generated\Shared\Transfer\ProductViewTransfer>
+     * @return array<int, \Generated\Shared\Transfer\ProductViewTransfer>
      */
     protected function expandProductViewTransfersWithRating(
         array $productViewTransfers,

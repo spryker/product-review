@@ -105,10 +105,10 @@ class ProductReviewClient extends AbstractClient implements ProductReviewClientI
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\ProductViewTransfer[] $productViewTransfers
+     * @param array<int, \Generated\Shared\Transfer\ProductViewTransfer> $productViewTransfers
      * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
      *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer[]
+     * @return array<int, \Generated\Shared\Transfer\ProductViewTransfer>
      */
     public function expandProductViewBulkWithProductReviewData(
         array $productViewTransfers,

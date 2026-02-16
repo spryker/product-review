@@ -43,7 +43,6 @@ class ProductReviewFactory extends AbstractFactory
      */
     public function createProductReviewsQueryPlugin(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer)
     {
-        /** @phpstan-var \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface $productReviewsQueryPlugin */
         $productReviewsQueryPlugin = new ProductReviewsQueryPlugin($productReviewSearchRequestTransfer);
 
         return $this->getSearchClient()->expandQuery(
@@ -60,7 +59,6 @@ class ProductReviewFactory extends AbstractFactory
      */
     public function createBulkProductReviewsQueryPlugin(BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer)
     {
-        /** @phpstan-var \Spryker\Client\SearchExtension\Dependency\Plugin\QueryInterface $bulkProductReviewsQueryPlugin */
         $bulkProductReviewsQueryPlugin = new BulkProductReviewsQueryPlugin($bulkProductReviewSearchRequestTransfer);
         $queryExpanderPlugins = $this->getProductReviewsQueryExpanderPlugins();
 

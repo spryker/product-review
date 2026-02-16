@@ -39,7 +39,7 @@ class ProductReviewAddReviewsMessageHandlerPlugin extends AbstractPlugin impleme
      *
      * @api
      *
-     * @return array<string, callable>
+     * @return iterable<string, callable>
      */
     public function handles(): iterable
     {

@@ -13,6 +13,7 @@ parameters:
         - { message: '#Instantiated class Elastica\\Query\\Type not found.#', path: '%rootDir%/../../../src/Spryker/ProductReview/src/Spryker/Client/ProductReview/Plugin/Elasticsearch/Query/ProductReviewsQueryPlugin.php' }
         - { message: '#Call to method setType\(\) on an unknown class Elastica\\Query\\Type.#', path: '%rootDir%/../../../src/Spryker/ProductReview/src/Spryker/Client/ProductReview/Plugin/Elasticsearch/Query/ProductReviewsQueryPlugin.php' }
         - { message: '#Call to method setType\(\) on an unknown class Elastica\\Query\\Type.#', path: '%rootDir%/../../../src/Spryker/ProductReview/src/Spryker/Client/ProductReview/Plugin/Elasticsearch/Query/ProductReviewsQueryPlugin.php' }
+        - { message: '#Method .+BulkProductReviewsQueryPlugin::getSearchTermsForProductReviewsFilter\(\) should return list<string> but returns array<numeric-string>.#', path: '%rootDir%/../../../src/Spryker/ProductReview/src/Spryker/Client/ProductReview/Plugin/Elasticsearch/Query/BulkProductReviewsQueryPlugin.php' }
         -
             identifier: missingType.iterableValue
     reportUnmatchedIgnoredErrors: false

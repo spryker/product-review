@@ -40,10 +40,6 @@ class ProductViewExpander implements ProductViewExpanderInterface
      */
     protected $productReviewSearchReader;
 
-    /**
-     * @param \Spryker\Client\ProductReview\Calculator\ProductReviewSummaryCalculatorInterface $productReviewSummaryCalculator
-     * @param \Spryker\Client\ProductReview\Search\ProductReviewSearchReaderInterface $productReviewSearchReader
-     */
     public function __construct(
         ProductReviewSummaryCalculatorInterface $productReviewSummaryCalculator,
         ProductReviewSearchReaderInterface $productReviewSearchReader
@@ -52,12 +48,6 @@ class ProductViewExpander implements ProductViewExpanderInterface
         $this->productReviewSearchReader = $productReviewSearchReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandProductViewWithProductReviewData(
         ProductViewTransfer $productViewTransfer,
         ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
@@ -76,11 +66,6 @@ class ProductViewExpander implements ProductViewExpanderInterface
         return $productViewTransfer;
     }
 
-    /**
-     * @param array $productReviews
-     *
-     * @return \Generated\Shared\Transfer\RatingAggregationTransfer
-     */
     protected function createRatingAggregationTransfer(array $productReviews): RatingAggregationTransfer
     {
         return (new RatingAggregationTransfer())

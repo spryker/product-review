@@ -23,10 +23,6 @@ class ProductAbstractReviewStorageReader implements ProductAbstractReviewStorage
      */
     protected $keyBuilder;
 
-    /**
-     * @param \Spryker\Client\ProductReview\Dependency\Client\ProductReviewToStorageInterface $storageClient
-     * @param \Spryker\Shared\KeyBuilder\KeyBuilderInterface $keyBuilder
-     */
     public function __construct(
         ProductReviewToStorageInterface $storageClient,
         KeyBuilderInterface $keyBuilder

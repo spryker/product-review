@@ -73,9 +73,6 @@ class ProductReviewFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductReview\Pagination\PaginationExpanderInterface
-     */
     public function createPaginationExpander(): PaginationExpanderInterface
     {
         return new PaginationExpander($this->getPaginationConfigBuilder());
@@ -190,19 +187,11 @@ class ProductReviewFactory extends AbstractFactory
         return new ProductAbstractReviewResourceKeyBuilder();
     }
 
-    /**
-     * @return \Spryker\Client\ProductReview\Calculator\ProductReviewSummaryCalculatorInterface
-     */
     public function createProductReviewSummaryCalculator(): ProductReviewSummaryCalculatorInterface
     {
         return new ProductReviewSummaryCalculator($this->getProductReviewConfig());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return \Spryker\Client\ProductReview\ProductViewExpander\ProductViewExpanderInterface
-     */
     public function createProductViewExpander(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer): ProductViewExpanderInterface
     {
         return new ProductViewExpander(
@@ -211,11 +200,6 @@ class ProductReviewFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-     *
-     * @return \Spryker\Client\ProductReview\ProductViewExpander\ProductViewExpanderInterface
-     */
     public function createProductViewBulkExpander(
         BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
     ): ProductViewExpanderInterface {
@@ -225,11 +209,6 @@ class ProductReviewFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return \Spryker\Client\ProductReview\Search\ProductReviewSearchReaderInterface
-     */
     public function createProductReviewSearchReader(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer): ProductReviewSearchReaderInterface
     {
         return new ProductReviewSearchReader(
@@ -239,11 +218,6 @@ class ProductReviewFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-     *
-     * @return \Spryker\Client\ProductReview\Search\ProductReviewSearchReaderInterface
-     */
     public function createProductReviewSearchBulkReader(
         BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
     ): ProductReviewSearchReaderInterface {
@@ -254,9 +228,6 @@ class ProductReviewFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductReview\ResultFormatter\ResultFormatterInterface
-     */
     public function createProductRatingAggreagationResultFormatter(): ResultFormatterInterface
     {
         return new ProductRatingAggreagationResultFormatter();

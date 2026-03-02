@@ -51,15 +51,6 @@ class ProductReviewDataHelper extends Module
         return $productReviewTransfer;
     }
 
-    /**
-     * @param int $idLocale
-     * @param string $customerReference
-     * @param int $idProductAbstract
-     * @param string $productReviewStatus
-     * @param int|null $productReviewRating
-     *
-     * @return \Generated\Shared\Transfer\ProductReviewTransfer
-     */
     public function haveApprovedCustomerReviewForAbstractProduct(
         int $idLocale,
         string $customerReference,
@@ -87,11 +78,6 @@ class ProductReviewDataHelper extends Module
         return $productReviewTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewTransfer $productReviewTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductReviewTransfer
-     */
     protected function saveProductReview(ProductReviewTransfer $productReviewTransfer): ProductReviewTransfer
     {
         $productReviewEntity = new SpyProductReview();
@@ -101,11 +87,6 @@ class ProductReviewDataHelper extends Module
         return $productReviewTransfer->fromArray($productReviewEntity->toArray(), true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewTransfer $productReviewTransfer
-     *
-     * @return void
-     */
     protected function removeProductReview(ProductReviewTransfer $productReviewTransfer): void
     {
         SpyProductReviewQuery::create()

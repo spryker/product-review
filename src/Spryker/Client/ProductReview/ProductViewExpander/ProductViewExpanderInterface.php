@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\ProductViewTransfer;
 
 interface ProductViewExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandProductViewWithProductReviewData(
         ProductViewTransfer $productViewTransfer,
         ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer

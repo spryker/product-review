@@ -18,9 +18,6 @@ class ProductReviewEntityReader implements ProductReviewEntityReaderInterface
      */
     protected $productReviewQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Persistence\ProductReviewQueryContainerInterface $productReviewQueryContainer
-     */
     public function __construct(ProductReviewQueryContainerInterface $productReviewQueryContainer)
     {
         $this->productReviewQueryContainer = $productReviewQueryContainer;

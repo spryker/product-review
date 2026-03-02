@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductReviewTransfer;
 
 interface ProductEventTriggerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewTransfer $productReviewTransfer
-     *
-     * @return void
-     */
     public function triggerProductUpdateEvent(ProductReviewTransfer $productReviewTransfer): void;
 }

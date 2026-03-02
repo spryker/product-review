@@ -28,19 +28,11 @@ class ProductReviewSummaryCalculator implements ProductReviewSummaryCalculatorIn
      */
     protected $productReviewConfig;
 
-    /**
-     * @param \Spryker\Client\ProductReview\ProductReviewConfig $productReviewConfig
-     */
     public function __construct(ProductReviewConfig $productReviewConfig)
     {
         $this->productReviewConfig = $productReviewConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RatingAggregationTransfer $ratingAggregationTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductReviewSummaryTransfer
-     */
     public function calculate(RatingAggregationTransfer $ratingAggregationTransfer): ProductReviewSummaryTransfer
     {
         $ratingAggregationTransfer->requireRatingAggregation();

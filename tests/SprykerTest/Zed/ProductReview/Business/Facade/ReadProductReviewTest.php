@@ -31,9 +31,6 @@ class ReadProductReviewTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testFindProductReviewDoesntFindNonExistingEntities(): void
     {
         // Arrange
@@ -47,9 +44,6 @@ class ReadProductReviewTest extends Unit
         $this->assertNull($actualProductReviewTransfer, 'Non existing product review should not have been found in database.');
     }
 
-    /**
-     * @return void
-     */
     public function testFindProductReviewFindsExistingEntities(): void
     {
         // Arrange

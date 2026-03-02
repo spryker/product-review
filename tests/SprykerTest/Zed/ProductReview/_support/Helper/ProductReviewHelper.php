@@ -21,9 +21,6 @@ class ProductReviewHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @return \Generated\Shared\Transfer\AddReviewsTransfer
-     */
     public function haveAddReviewTransferWithValidProductAndLocale(): AddReviewsTransfer
     {
         $productIdentifier = Uuid::uuid4()->toString();
@@ -57,9 +54,6 @@ class ProductReviewHelper extends Module
         return $reviewTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AddReviewsTransfer
-     */
     public function haveAddReviewTransferWithoutValidProduct(): AddReviewsTransfer
     {
         $addReviewsTransfer = new AddReviewsTransfer();
@@ -68,9 +62,6 @@ class ProductReviewHelper extends Module
         return $addReviewsTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AddReviewsTransfer
-     */
     public function haveAddReviewTransferWithoutValidLocale(): AddReviewsTransfer
     {
         $productIdentifier = Uuid::uuid4()->toString();
@@ -96,19 +87,11 @@ class ProductReviewHelper extends Module
         $this->getProductHelper()->haveFullProduct([], [ProductAbstractTransfer::SKU => $productIdentifier]);
     }
 
-    /**
-     * @return \SprykerTest\Shared\Product\Helper\ProductDataHelper
-     */
     protected function getProductHelper(): ProductDataHelper
     {
         return $this->getModule('\\' . ProductDataHelper::class);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReviewTransfer $reviewTransfer
-     *
-     * @return void
-     */
     public function assertReviewExists(ReviewTransfer $reviewTransfer): void
     {
         $productReviewEntity = SpyProductReviewQuery::create()->findOneByNickname($reviewTransfer->getNickname());
@@ -116,11 +99,6 @@ class ProductReviewHelper extends Module
         $this->assertNotNull($productReviewEntity, sprintf('Expected to find a ProductReview from %s but no Review was found.', $reviewTransfer->getNickname()));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReviewTransfer $reviewTransfer
-     *
-     * @return void
-     */
     public function assertReviewNotExists(ReviewTransfer $reviewTransfer): void
     {
         $numberOfFoundReviews = SpyProductReviewQuery::create()->filterByNickname($reviewTransfer->getNickname())->count();

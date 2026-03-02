@@ -25,10 +25,6 @@ class ProductReviewDeleter implements ProductReviewDeleterInterface
      */
     protected $productReviewTouch;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Business\Model\ProductReviewEntityReaderInterface $productReviewEntityReader
-     * @param \Spryker\Zed\ProductReview\Business\Model\Touch\ProductReviewTouchInterface $productReviewTouch
-     */
     public function __construct(ProductReviewEntityReaderInterface $productReviewEntityReader, ProductReviewTouchInterface $productReviewTouch)
     {
         $this->productReviewEntityReader = $productReviewEntityReader;

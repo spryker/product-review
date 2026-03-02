@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\AddReviewsTransfer;
 
 interface ProductReviewMessageHandlerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AddReviewsTransfer $addReviewsTransfer
-     *
-     * @return void
-     */
     public function handleAddReviews(AddReviewsTransfer $addReviewsTransfer): void;
 }

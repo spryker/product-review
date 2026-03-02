@@ -24,19 +24,11 @@ class ProductEventTrigger implements ProductEventTriggerInterface
      */
     protected $eventFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToEventInterface $eventFacade
-     */
     public function __construct(ProductReviewToEventInterface $eventFacade)
     {
         $this->eventFacade = $eventFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewTransfer $productReviewTransfer
-     *
-     * @return void
-     */
     public function triggerProductUpdateEvent(ProductReviewTransfer $productReviewTransfer): void
     {
         $productUpdatedEvent = (new EventEntityTransfer())->setForeignKeys([

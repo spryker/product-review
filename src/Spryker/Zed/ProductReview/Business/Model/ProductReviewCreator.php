@@ -29,10 +29,6 @@ class ProductReviewCreator implements ProductReviewCreatorInterface
      */
     protected $productEventTrigger;
 
-    /**
-     * @param \Spryker\Client\ProductReview\ProductReviewClientInterface $productReviewClient
-     * @param \Spryker\Zed\ProductReview\Business\Trigger\ProductEventTriggerInterface $productEventTrigger
-     */
     public function __construct(
         ProductReviewClientInterface $productReviewClient,
         ProductEventTriggerInterface $productEventTrigger

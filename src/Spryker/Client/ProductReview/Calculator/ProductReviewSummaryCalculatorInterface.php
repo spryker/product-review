@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\RatingAggregationTransfer;
 
 interface ProductReviewSummaryCalculatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RatingAggregationTransfer $ratingAggregationTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductReviewSummaryTransfer
-     */
     public function calculate(RatingAggregationTransfer $ratingAggregationTransfer): ProductReviewSummaryTransfer;
 }

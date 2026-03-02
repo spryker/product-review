@@ -34,10 +34,6 @@ class ProductAbstractReviewTwigExtension extends TwigExtension
      */
     protected $locale;
 
-    /**
-     * @param \Spryker\Client\ProductReview\ProductReviewClientInterface $productReviewClient
-     * @param string $locale
-     */
     public function __construct(ProductReviewClientInterface $productReviewClient, string $locale)
     {
         $this->productReviewClient = $productReviewClient;

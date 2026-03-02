@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductReviewSearchRequestTransfer;
 
 interface ProductReviewSearchReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return array
-     */
     public function findProductReviews(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer): array;
 
     /**

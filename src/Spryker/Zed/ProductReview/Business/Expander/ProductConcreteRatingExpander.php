@@ -17,9 +17,6 @@ class ProductConcreteRatingExpander implements ProductConcreteRatingExpanderInte
      */
     protected $productReviewRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Persistence\ProductReviewRepositoryInterface $productReviewRepository
-     */
     public function __construct(ProductReviewRepositoryInterface $productReviewRepository)
     {
         $this->productReviewRepository = $productReviewRepository;

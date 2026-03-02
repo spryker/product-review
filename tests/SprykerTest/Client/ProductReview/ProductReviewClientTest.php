@@ -63,9 +63,6 @@ class ProductReviewClientTest extends Unit
      */
     protected ProductReviewClientTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandProductViewBulkWithProductReviewData(): void
     {
         // Arrange
@@ -90,9 +87,6 @@ class ProductReviewClientTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testGetBulkProductReviewsFromSearchEnsureBulkPluginStackExecution(): void
     {
         // Arrange
@@ -133,11 +127,6 @@ class ProductReviewClientTest extends Unit
             ->getMock();
     }
 
-    /**
-     * @param array $returnedContent
-     *
-     * @return void
-     */
     protected function mockSearchResult(array $returnedContent): void
     {
         $contentToStorageBridge = $this->getMockBuilder(ProductReviewToSearchInterface::class)->getMock();
@@ -193,9 +182,6 @@ class ProductReviewClientTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getExpectedAverageRating(): array
     {
         return [

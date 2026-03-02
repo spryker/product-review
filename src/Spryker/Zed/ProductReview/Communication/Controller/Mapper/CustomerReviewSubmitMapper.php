@@ -18,9 +18,6 @@ class CustomerReviewSubmitMapper implements CustomerReviewSubmitMapperInterface
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToLocaleInterface $localeFacade
-     */
     public function __construct(ProductReviewToLocaleInterface $localeFacade)
     {
         $this->localeFacade = $localeFacade;

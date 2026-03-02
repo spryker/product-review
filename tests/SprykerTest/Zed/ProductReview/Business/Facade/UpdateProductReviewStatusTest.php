@@ -32,9 +32,6 @@ class UpdateProductReviewStatusTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testUpdateProductReviewStatusPersistsChangesToDatabase(): void
     {
         // Arrange
@@ -88,9 +85,6 @@ class UpdateProductReviewStatusTest extends Unit
         $this->tester->assertTouchDeleted(ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW, $productReviewTransferToUpdate->getIdProductReview(), 'Product review should have been touched as deleted.');
     }
 
-    /**
-     * @return array
-     */
     public function statusDataProvider(): array
     {
         return [
@@ -125,9 +119,6 @@ class UpdateProductReviewStatusTest extends Unit
         $this->tester->assertTouchActive(ProductReviewConfig::RESOURCE_TYPE_PRODUCT_ABSTRACT_REVIEW, $productReviewTransferToUpdate->getFkProductAbstract(), 'Product review abstract should have been touched as active.');
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateProductReviewReturnsUpdatedTransfer(): void
     {
         // Arrange
@@ -151,9 +142,6 @@ class UpdateProductReviewStatusTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateProductReviewStatusThrowsExceptionWhenProductReviewIdIsNotProvidedInTransfer(): void
     {
         // Arrange
@@ -168,9 +156,6 @@ class UpdateProductReviewStatusTest extends Unit
         $this->tester->getFacade()->updateProductReviewStatus($productReviewTransferToUpdate);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateProductReviewStatusThrowsExceptionWhenProductReviewStatusIsNotProvidedInTransfer(): void
     {
         // Arrange

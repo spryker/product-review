@@ -17,9 +17,6 @@ class ProductReviewStub implements ProductReviewStubInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\ProductReview\Dependency\Client\ProductReviewToZedRequestInterface $zedRequestClient
-     */
     public function __construct(ProductReviewToZedRequestInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;

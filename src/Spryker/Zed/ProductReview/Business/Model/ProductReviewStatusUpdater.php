@@ -32,11 +32,6 @@ class ProductReviewStatusUpdater implements ProductReviewStatusUpdaterInterface
      */
     protected $productEventTrigger;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Business\Model\ProductReviewEntityReaderInterface $productReviewEntityReader
-     * @param \Spryker\Zed\ProductReview\Business\Model\Touch\ProductReviewTouchInterface $productReviewTouch
-     * @param \Spryker\Zed\ProductReview\Business\Trigger\ProductEventTriggerInterface $productEventTrigger
-     */
     public function __construct(
         ProductReviewEntityReaderInterface $productReviewEntityReader,
         ProductReviewTouchInterface $productReviewTouch,

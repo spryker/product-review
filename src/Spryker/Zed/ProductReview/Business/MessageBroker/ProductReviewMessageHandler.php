@@ -39,12 +39,6 @@ class ProductReviewMessageHandler implements ProductReviewMessageHandlerInterfac
      */
     protected ProductReviewReaderInterface $productReviewReader;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Business\Model\ProductReviewCreatorInterface $productReviewCreator
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToLocaleInterface $localeFacade
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToProductInterface $productFacade
-     * @param \Spryker\Zed\ProductReview\Business\Model\ProductReviewReaderInterface $productReviewReader
-     */
     public function __construct(
         ProductReviewCreatorInterface $productReviewCreator,
         ProductReviewToLocaleInterface $localeFacade,
@@ -57,11 +51,6 @@ class ProductReviewMessageHandler implements ProductReviewMessageHandlerInterfac
         $this->productReviewReader = $productReviewReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AddReviewsTransfer $addReviewsTransfer
-     *
-     * @return void
-     */
     public function handleAddReviews(AddReviewsTransfer $addReviewsTransfer): void
     {
         $localeNameToForeignKeyMap = $this->mapLocaleNamesToIdLocales($addReviewsTransfer);
@@ -161,11 +150,6 @@ class ProductReviewMessageHandler implements ProductReviewMessageHandlerInterfac
         return $this->getIdProductAbstractMap($productIdentifiers);
     }
 
-    /**
-     * @param array $productIdentifiers
-     *
-     * @return array
-     */
     protected function getIdProductAbstractMap(array $productIdentifiers): array
     {
         $productIdentifierToIdProductAbstractMap = [];

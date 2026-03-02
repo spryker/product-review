@@ -43,11 +43,6 @@ class ProductReviewSearchReader implements ProductReviewSearchReaderInterface
         $this->searchResultFormatterPlugins = $searchResultFormatterPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     *
-     * @return array
-     */
     public function findProductReviews(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer): array
     {
         return $this->searchClient->search(

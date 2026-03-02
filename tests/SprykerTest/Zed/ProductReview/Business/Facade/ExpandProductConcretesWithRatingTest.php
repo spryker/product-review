@@ -28,9 +28,6 @@ class ExpandProductConcretesWithRatingTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandProductConcretesWithRatingWithoutRatings(): void
     {
         // Arrange
@@ -49,9 +46,6 @@ class ExpandProductConcretesWithRatingTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandProductConcretesWithRatingCountsOnlyApprovedRatings(): void
     {
         // Arrange
@@ -111,9 +105,6 @@ class ExpandProductConcretesWithRatingTest extends Unit
         $this->assertSame(3.0, $expandedProductConcreteTransfers[1]->getRating());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandProductConcretesWithRatingIgnoresNotApprovedRatings(): void
     {
         // Arrange

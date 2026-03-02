@@ -33,9 +33,6 @@ class CreateProductReviewTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testCreateProductReviewPersistsToDatabase(): void
     {
         // Arrange
@@ -93,9 +90,6 @@ class CreateProductReviewTest extends Unit
         $this->assertSame(SpyProductReviewTableMap::COL_STATUS_PENDING, $actualProductReviewTransfer->getStatus(), 'Product review should have been created with expected status.');
     }
 
-    /**
-     * @return void
-     */
     public function testCreateProductReviewThrowsExceptionWhenInvalidStatusProvided(): void
     {
         // Arrange
@@ -110,9 +104,6 @@ class CreateProductReviewTest extends Unit
         $this->tester->getFacade()->createProductReview($productReviewTransfer);
     }
 
-    /**
-     * @return array
-     */
     public function validStatusDataProvider(): array
     {
         return [
@@ -122,9 +113,6 @@ class CreateProductReviewTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function emptyStatusDataProvider(): array
     {
         return [
@@ -133,9 +121,6 @@ class CreateProductReviewTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testCreateProductReviewReturnsUpdatedTransfer(): void
     {
         // Arrange
@@ -153,9 +138,6 @@ class CreateProductReviewTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCreateProductReviewThrowsExceptionWhenRatingExceedsRange(): void
     {
         // Arrange

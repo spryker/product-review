@@ -23,9 +23,6 @@ class ProductReviewFactory extends AbstractFactory
         return new ProductAbstractReviewTwigExtension($this->getClient(), $this->getLocale());
     }
 
-    /**
-     * @return string
-     */
     protected function getLocale(): string
     {
         return $this->getProvidedDependency(ProductReviewDependencyProvider::SERVICE_LOCALE);

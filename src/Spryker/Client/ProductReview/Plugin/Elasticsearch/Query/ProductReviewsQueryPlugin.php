@@ -46,9 +46,6 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
      */
     protected $searchContextTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer
-     */
     public function __construct(ProductReviewSearchRequestTransfer $productReviewSearchRequestTransfer)
     {
         $this->productReviewSearchRequestTransfer = $productReviewSearchRequestTransfer;
@@ -100,9 +97,6 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return void
-     */
     protected function setupDefaultSearchContext(): void
     {
         $searchContextTransfer = new SearchContextTransfer();
@@ -125,11 +119,6 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
         return $query;
     }
 
-    /**
-     * @param \Elastica\Query\BoolQuery $query
-     *
-     * @return \Elastica\Query\BoolQuery
-     */
     protected function addProductReviewsFilterToQuery(BoolQuery $query): BoolQuery
     {
         $this->productReviewSearchRequestTransfer->requireIdProductAbstract();
@@ -156,11 +145,6 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
         return $query;
     }
 
-    /**
-     * @param \Elastica\Query\BoolQuery $query
-     *
-     * @return \Elastica\Query\BoolQuery
-     */
     protected function addProductReviewTypeFilterToQuery(BoolQuery $query): BoolQuery
     {
         if (!$this->supportsMappingTypes()) {
@@ -174,17 +158,11 @@ class ProductReviewsQueryPlugin extends AbstractPlugin implements QueryInterface
         return $query;
     }
 
-    /**
-     * @return bool
-     */
     protected function hasSearchContext(): bool
     {
         return (bool)$this->searchContextTransfer;
     }
 
-    /**
-     * @return bool
-     */
     protected function supportsMappingTypes(): bool
     {
         return method_exists(Index::class, 'getType');

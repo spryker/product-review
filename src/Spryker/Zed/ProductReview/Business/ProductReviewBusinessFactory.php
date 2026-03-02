@@ -31,17 +31,11 @@ use Spryker\Zed\ProductReview\ProductReviewDependencyProvider;
  */
 class ProductReviewBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductReview\Business\Trigger\ProductEventTriggerInterface
-     */
     public function createProductEventTrigger(): ProductEventTriggerInterface
     {
         return new ProductEventTrigger($this->getEventFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductReview\Business\Expander\ProductConcreteRatingExpanderInterface
-     */
     public function createProductConcreteRatingExpander(): ProductConcreteRatingExpanderInterface
     {
         return new ProductConcreteRatingExpander($this->getRepository());
@@ -86,9 +80,6 @@ class ProductReviewBusinessFactory extends AbstractBusinessFactory
         return new ProductReviewDeleter($this->createProductReviewEntityReader(), $this->createProductReviewTouch());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductReview\Business\MessageBroker\ProductReviewMessageHandlerInterface
-     */
     public function createProductReviewMessageHandler(): ProductReviewMessageHandlerInterface
     {
         return new ProductReviewMessageHandler(
@@ -115,9 +106,6 @@ class ProductReviewBusinessFactory extends AbstractBusinessFactory
         return new ProductReviewEntityReader($this->getQueryContainer());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToEventInterface
-     */
     protected function getEventFacade(): ProductReviewToEventInterface
     {
         return $this->getProvidedDependency(ProductReviewDependencyProvider::FACADE_EVENT);
@@ -139,9 +127,6 @@ class ProductReviewBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ProductReviewDependencyProvider::FACADE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToLocaleInterface
-     */
     protected function getLocaleFacade(): ProductReviewToLocaleInterface
     {
         return $this->getProvidedDependency(ProductReviewDependencyProvider::FACADE_LOCALE);

@@ -166,11 +166,6 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
         ];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductReviewsBulkQueryExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_REVIEWS_BULK_QUERY_EXPANDER, function () {
@@ -216,11 +211,6 @@ class ProductReviewDependencyProvider extends AbstractDependencyProvider
         ];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductReviewsBulkSearchResultFormatterPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_REVIEWS_BULK_SEARCH_RESULT_FORMATTER, function () {

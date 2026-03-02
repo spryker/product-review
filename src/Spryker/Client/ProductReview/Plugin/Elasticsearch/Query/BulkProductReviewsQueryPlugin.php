@@ -45,18 +45,12 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
      */
     protected $searchContextTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer
-     */
     public function __construct(BulkProductReviewSearchRequestTransfer $bulkProductReviewSearchRequestTransfer)
     {
         $this->bulkProductReviewSearchRequestTransfer = $bulkProductReviewSearchRequestTransfer;
         $this->query = $this->createSearchQuery();
     }
 
-    /**
-     * @return \Elastica\Query
-     */
     public function getSearchQuery(): Query
     {
         return $this->query;
@@ -94,9 +88,6 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return \Elastica\Query
-     */
     protected function createSearchQuery(): Query
     {
         $boolQuery = new BoolQuery();
@@ -108,11 +99,6 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
         return $query;
     }
 
-    /**
-     * @param \Elastica\Query\BoolQuery $query
-     *
-     * @return \Elastica\Query\BoolQuery
-     */
     protected function addProductReviewsFilterToQuery(BoolQuery $query): BoolQuery
     {
         $productReviewsFilter = new Terms(
@@ -136,11 +122,6 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
         }, $this->bulkProductReviewSearchRequestTransfer->getProductAbstractIds());
     }
 
-    /**
-     * @param \Elastica\Query\BoolQuery $query
-     *
-     * @return \Elastica\Query\BoolQuery
-     */
     protected function addProductReviewTypeFilterToQuery(BoolQuery $query): BoolQuery
     {
         if (!$this->supportsMappingTypes()) {
@@ -154,9 +135,6 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
         return $query;
     }
 
-    /**
-     * @return void
-     */
     protected function setupDefaultSearchContext(): void
     {
         $searchContextTransfer = new SearchContextTransfer();
@@ -165,17 +143,11 @@ class BulkProductReviewsQueryPlugin extends AbstractPlugin implements QueryInter
         $this->searchContextTransfer = $searchContextTransfer;
     }
 
-    /**
-     * @return bool
-     */
     protected function hasSearchContext(): bool
     {
         return (bool)$this->searchContextTransfer;
     }
 
-    /**
-     * @return bool
-     */
     protected function supportsMappingTypes(): bool
     {
         return method_exists(Index::class, 'getType');

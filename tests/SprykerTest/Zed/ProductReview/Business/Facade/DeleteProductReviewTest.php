@@ -28,9 +28,6 @@ class DeleteProductReviewTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testDeleteProductReviewRemovesEntityFromDatabase(): void
     {
         // Arrange
@@ -45,9 +42,6 @@ class DeleteProductReviewTest extends Unit
         $this->assertNull($productReviewTransfer, 'Product review should have been deleted.');
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteProductReviewTouchesProductReviewSearchResource(): void
     {
         // Arrange
@@ -61,9 +55,6 @@ class DeleteProductReviewTest extends Unit
         $this->tester->assertTouchDeleted(ProductReviewConfig::RESOURCE_TYPE_PRODUCT_REVIEW, $productReviewTransfer->getIdProductReview(), 'Product review should have been touched as deleted.');
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteProductReviewTouchesProductReviewAbstractSearchResource(): void
     {
         // Arrange

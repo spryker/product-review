@@ -27,9 +27,6 @@ class PaginationExpander implements PaginationExpanderInterface
      */
     protected $paginationConfigBuilder;
 
-    /**
-     * @param \Spryker\Client\Search\Dependency\Plugin\PaginationConfigBuilderInterface $paginationConfigBuilder
-     */
     public function __construct(PaginationConfigBuilderInterface $paginationConfigBuilder)
     {
         $this->paginationConfigBuilder = $paginationConfigBuilder;

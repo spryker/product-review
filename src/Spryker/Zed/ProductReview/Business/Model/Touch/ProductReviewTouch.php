@@ -25,10 +25,6 @@ class ProductReviewTouch implements ProductReviewTouchInterface
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToTouchInterface $touchFacade
-     * @param \Spryker\Zed\ProductReview\Dependency\Facade\ProductReviewToProductInterface $productFacade
-     */
     public function __construct(ProductReviewToTouchInterface $touchFacade, ProductReviewToProductInterface $productFacade)
     {
         $this->touchFacade = $touchFacade;

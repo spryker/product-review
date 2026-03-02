@@ -28,9 +28,6 @@ class ProductReviewFacadeTest extends Unit
      */
     protected ProductReviewBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testHandleAddReviewsCreatesReview(): void
     {
         // Arrange
@@ -44,9 +41,6 @@ class ProductReviewFacadeTest extends Unit
         $this->tester->assertReviewExists($expectedReview);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleAddReviewsIgnoresReviewWhenProductNotFound(): void
     {
         // Arrange
@@ -60,9 +54,6 @@ class ProductReviewFacadeTest extends Unit
         $this->tester->assertReviewNotExists($expectedReview);
     }
 
-    /**
-     * @return void
-     */
     public function testHandleAddReviewsIgnoresReviewWhenLocaleNotFound(): void
     {
         // Arrange

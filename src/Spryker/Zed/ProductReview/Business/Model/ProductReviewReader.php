@@ -18,9 +18,6 @@ class ProductReviewReader implements ProductReviewReaderInterface
      */
     protected $productReviewQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductReview\Persistence\ProductReviewQueryContainerInterface $productReviewQueryContainer
-     */
     public function __construct(ProductReviewQueryContainerInterface $productReviewQueryContainer)
     {
         $this->productReviewQueryContainer = $productReviewQueryContainer;
@@ -81,11 +78,6 @@ class ProductReviewReader implements ProductReviewReaderInterface
             ->findOne();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductReviewTransfer $productReviewTransfer
-     *
-     * @return bool
-     */
     public function isProductReviewAlreadySubmittedByCustomer(ProductReviewTransfer $productReviewTransfer): bool
     {
         return $this->productReviewQueryContainer->queryProductReview()

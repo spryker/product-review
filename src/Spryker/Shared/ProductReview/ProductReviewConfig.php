@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\ProductReview;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class ProductReviewConfig extends AbstractBundleConfig
+class ProductReviewConfig extends AbstractSharedConfig
 {
     /**
      * @api
